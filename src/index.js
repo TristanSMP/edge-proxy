@@ -1,6 +1,8 @@
 import net from "node:net";
 import { WebSocket, WebSocketServer } from "ws";
 
+console.log("Starting tcp-over-ws");
+
 if (process.env.RUN_BACKEND === "true") {
   const backendPort = process.env.BACKEND_PORT
     ? parseInt(process.env.PORT)
