@@ -9,12 +9,12 @@ const mcServerConnectDetails = {
     ? parseInt(process.env.MC_SERVER_PORT)
     : 25565,
 };
-const log = (msg) => console.log(`[frontend] ${msg}`);
+const log = (msg) => console.log(`[proxy] ${msg}`);
 
 const server = net.createServer();
 
 server.on("connection", (socket) => {
-  log("New connection");
+  log(`New connection (${server.connections} players)`);
 
   const mcServer = net.createConnection({
     host: mcServerConnectDetails.host,
@@ -25,11 +25,11 @@ server.on("connection", (socket) => {
   mcServer.pipe(socket);
 
   socket.on("close", () => {
-    log("Connection closed");
+    log(`Connection closed (${server.connections} players)`);
     mcServer.destroy();
   });
 });
 
 server.listen(port, () => {
-  log(`Frontend websocket ready on port ${port}`);
+  log(`Proxy listening on port \`${port}\``);
 });
