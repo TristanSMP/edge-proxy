@@ -1,14 +1,14 @@
-FROM node:18-alpine
+FROM golang:1.19-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json ./
-COPY yarn.lock ./
+COPY go.mod ./
+COPY go.sum ./
 
-RUN yarn install
+RUN go mod download
 
 COPY . .
 
-USER node
+RUN go build -o main
 
-ENTRYPOINT [ "node", "src/index.js" ]
+CMD ["./main"]
