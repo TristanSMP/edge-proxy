@@ -1,1 +1,1 @@
-# tcp-over-ws
+# edge-proxy
