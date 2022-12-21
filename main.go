@@ -14,7 +14,7 @@ var DEST_PORT = "25565"
 var CLIENTS = make(map[uuid.UUID]net.Conn)
 
 func main() {
-	l, err := net.Listen("tcp", "127.0.0.1"+":"+CONN_PORT)
+	l, err := net.Listen("tcp", "0.0.0.0"+":"+CONN_PORT)
 
 	if err != nil {
 		panic(err)
