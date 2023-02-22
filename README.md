@@ -1,3 +1,5 @@
+> **Warning**: No longer maintained due to TSMP not being home hosted anymore and instead hosted in the cloud courtesy of GCP.
+
 # edge-proxy
 
 ```mermaid
